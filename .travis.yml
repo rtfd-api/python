@@ -1,18 +1,23 @@
 language: python
-
 dist: xenial
-
 python:
-- "3.6"
-- "3.7"
-- "3.8-dev"
-
+- '3.6'
+- '3.7'
+- 3.8-dev
 install:
 - pip install pipenv
 - pipenv install --dev
-
 script:
 - py.test --cov-report term --cov rtfd tests
-
 after_success:
 - codecov
+deploy:
+  provider: pypi
+  user: moreal
+  password:
+    secure: om/siXOIW7GjdmHWvZ++6OCGWNLkVFufGR78IX5Rr0wqF7GBtUUdSiGuS317mS9tmsHyakBNWCSH+QL1zGCKA1IS81EpIYek9rG6TZTOlZOR3s6UNSfrNniOhy8j8xHDVkBbS2kdjvka0MzeOGOHOe18Na5i/IrDD9l+5xdbV2IXGq3MmKudEOZqZRmordULTczfCRLeSb+ITtVMRfx9onZk4lEj2gcabQUV0u8Eg57IZMUoApg5g33rnVt4uG9aH1BM9/q2k8Q6zkp6jOz4Dbn1n8ix4Vj7U40Eszo6KtzJDv5NCCTQvBYdvPaB7DM7psjVuqXoheuCt42Pxe0/7EWrh3BkKAUittsi1wzxMQ+yIoSLWjulliNXIn8pBwV366FOUcTaY39SZEPja+U1HsdibKJDRiCaMuOFQttMpI+nwwxMirjVJMYTeBwWreCKR5ji0A9SP3iiljy3lTwbvUZBeadGvvQ5NLia7P9+79cJXGktmfXt6iOfjBB9kxq2KkLA1SgP+COQNgNEtg3Dl/EfA0H93grp2WOPnr+si/2q+Tb8ilZOFMdPNXp2J61AXwvydavO5GqJT7tiwyX0TT3NFjI7ud+dput4CWoOZYozpzETGqo6rq5c6ymgt+aZTeJy+/lrSc/wUWllOoa7AlnMKNiP/tTw5yUaPB5fDzY=
+  skip_cleanup: true
+  skip_existing: true
+  on:
+    tags: true
+    branch: master

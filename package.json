@@ -1,0 +1,12 @@
+{
+  "name": "for-commitlint",
+  "description": "Public API wrapper of `Read the Docs`",
+  "scripts": {
+    "commitmsg": "commitlint -e $GIT_PARAMS"
+  },
+  "dependencies": {
+    "@commitlint/config-conventional": "^8.0.0",
+    "commitlint": "^8.0.0",
+    "husky": "^2.4.1"
+  }
+}

@@ -10,6 +10,7 @@ pytest-cov = "*"
 
 [packages]
 requests = "*"
+dataclasses = "*"
 
 [requires]
 python_version = "3.6"
